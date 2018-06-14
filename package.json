@@ -1,0 +1,40 @@
+{
+  "name": "mdcss-theme-sapper",
+  "version": "1.0.0",
+  "keywords": [
+    "mdcss",
+    "mdcss-theme",
+    "theme",
+    ""
+  ],
+  "author": "Tim Clulow <tim@cssandstuff.com>",
+  "license": "CC0-1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cssandstuff/mdcss-theme-sapper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cssandstuff/mdcss-theme-sapper/issues"
+  },
+  "homepage": "git+https://github.com/cssandstuff/mdcss-theme-sapper.git#readme",
+  "dependencies": {
+    "ejs": "^2.3.4",
+    "fs-extra": "^0.26.1",
+    "fs-promise": "^0.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^1.8.0",
+    "mdcss": "^1.1.1",
+    "tap-spec": "^4.1.0",
+    "tape": "^4.2.2"
+  },
+  "scripts": {
+    "lint": "eslint . --ignore-path .eshintignore",
+    "test-fixtures": "tape test.js | tap-spec",
+    "test": "npm run lint && npm run test-fixtures"
+  },
+  "engines": {
+    "iojs": ">=2.0.0",
+    "node": ">=0.12.0"
+  }
+}
