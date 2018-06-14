@@ -3,14 +3,7 @@
 </svelte:head>
 
 <main>
-<Scroller
-{top}
-{threshold}
-{bottom}
-bind:count
-bind:index
-bind:offset
-bind:progress>
+<Scroller {top} {threshold} {bottom} bind:count bind:index bind:offset bind:progress>
 <div slot="background">
 	<p>current section: <strong>{index + 1}/{count}</strong></p>
 	<progress value="{count ? (index + 1) / count : 0}"></progress>
@@ -51,9 +44,9 @@ bind:progress>
 			%>
 		</nav>
 </div>
-<%
+
 <div slot="foreground" style="padding: 0 0 0 50%;">
-function renderSections(children, depth) {
+<% function renderSections(children, depth) {
 	children.forEach(function (child) {
 		if (child.name) { %>
 			<section id="<%= child.name %>">
@@ -85,8 +78,9 @@ function renderSections(children, depth) {
 			</section>
 		<% }
 	});
-}
+} %>
 </div>
 </Scroller>	
+<%
 renderSections(list, 2);
 %></main>
