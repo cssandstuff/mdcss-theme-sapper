@@ -85,7 +85,8 @@ renderSections(list, 2);
 
 <script>
 	import Scroller from '@sveltejs/svelte-scroller';
-	
+	import Switch from '../components/Switch.html';
+
 	export default {
     data(){
       return{
@@ -96,7 +97,7 @@ renderSections(list, 2);
       }
     },
 		components: {
-			Scroller
+			Scroller, Switch
 		}
 	};
 </script>
