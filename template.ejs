@@ -4,14 +4,7 @@
 
 <Scroller {top} {threshold} {bottom} bind:count bind:index bind:offset bind:progress>
 <div slot="background">
-	<p>current section: <strong>{index + 1}/{count}</strong></p>
-	<progress value="{count ? (index + 1) / count : 0}"></progress>
-
-	<p>offset in current section</p>
-	<progress value={offset || 0}></progress>
-
-	<p>total progress</p>
-	<progress value={progress || 0}></progress>
+	<div class="progress-top" style="width: {progress*100 || 0}%; height: 10px; background: rgba(90,90,90,0.1)"></div>
 	<nav>
 			<%
 	
@@ -22,7 +15,7 @@
 						if (child.name) {
 	
 							%>
-							<li>
+							<li class="{selected--index + 1}">
 								<a href="#<%- child.name %>"><span><%- child.title %></span></a>
 								<%
 	
@@ -62,8 +55,6 @@
 				</div>
 			</section>
 		<% } else { %>
-			<section>
-				<div>
 					<%- child.content %>
 					<%
 
@@ -72,8 +63,6 @@
 					}
 
 					%>
-				</div>
-			</section>
 		<% }
 	});
 } %>
@@ -92,9 +81,10 @@ renderSections(list, 2);
     data(){
       return{
         // you can drag the markers in the right rail
-        top: 0.2,
-        threshold: 0.5,
-        bottom: 0.8
+        top: 0.15,
+        threshold: 0.01,
+        bottom: 1,
+        parallax: false
       }
     },
 		components: {
